@@ -29,7 +29,19 @@ if (supportsVideo) {
         else {
             video.pause();
         }
-    })
+    });
+
+    // stop
+    stop.addEventListener('click', function () {
+        video.pause();
+        video.currentTime = 0;
+        progress.value = 0;
+    });
+
+    // mute 
+    mute.addEventListener('click', function () {
+        video.muted ? video.muted = false : video.muted = true;
+    });
 
     // console.log(videoContainer, video, videoControls);
 }
