@@ -43,5 +43,66 @@ if (supportsVideo) {
         video.muted ? video.muted = false : video.muted = true;
     });
 
-    // console.log(videoContainer, video, videoControls);
+    // volume up
+    volInc.addEventListener('click', function () {
+        if (video.volume < 1.0) {
+            video.volume += 0.1;
+        }
+    });
+
+    // volume down
+    voldec.addEventListener('click', function () {
+        if (video.volume > 0.0) {
+            video.volume -= 0.1;
+        }
+    });
+
+    // progress 
+    // set max value of progress bar
+    video.addEventListener('loadedmetadata', function () {
+        progress.setAttribute('max', video.duration);
+    });
+
+    // set the current value of progress bar
+    video.addEventListener('timeupdate', function () {
+        if (!progress.getAttribute('max')) {
+            progress.setAttribute('max', video.duration);
+        };
+
+        progress.value = video.currentTime;
+        progressBar.style.width = Math.floor((video.currentTime / video.duration) * 100) + '%';
+    });
+
+    // seek through the video
+    progress.addEventListener('click', function (e) {
+        var pos = (e.pageX - this.offsetLeft) / this.offsetWidth;
+        video.currentTime = pos * video.duration;
+    });
+
+    // fullscreen
+    // check if browser supports the fullscreen
+    let fullScreenEn = !!(document.fullscreenEnabled);
+
+    // if doesn't support don't show full screen button
+    if (!fullScreenEn) {
+        fullscreen.style.display = 'none';
+    }
+
+    // check if the browser is in fullscreen
+    let isFullscreen = () => {
+        return !!document.fullscreenElement
+    };
+
+    fullscreen.addEventListener('click', function () {
+        if (isFullscreen()) {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+        else {
+            if (videoContainer.requestFullscreen) {
+                videoContainer.requestFullscreen();
+            }
+        }
+    })
 }
