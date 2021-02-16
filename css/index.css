@@ -7,31 +7,49 @@
     padding: 0;
 }
 
+html{
+    font-size: 65.5%;
+}
+
+body{
+    font-size: 1.6rem;
+}
+
 /* video */
-video{
-    position: relative;
-    top: 0;
-    left: 0;
-    margin: 10px;
+#videoContainer{
+    background: rgb(102,102,102);
+    display: inline-block;
+    padding: 1rem;
+    max-width: 90vw;
+    width: 700px;
+    margin: 0 auto;
+}
+
+#video{
+    max-width: 90vw;
+    width: 60rem;
+    height: 100%;
 }
 
 /* controls */
 #video-controls{
-    position: absolute;
-    width: 100%;
-    display: none;
+    position: relative;
+    height: 100%;
 }
 
-#video-controls li{
-    list-style: none;
-    margin: 0 0.6rem;
-}
-
-button{
+#video-controls > button, .progress{
     cursor: pointer;
-    padding: 4px;
+    border: none;
+    outline: none;
+    background: transparent;
+    height: 10%;
+    display: inline-block;
+    color: gray;
 }
 
-progress{
-    cursor: pointer;
+button > i{
+    background: black;
+    border-radius: 6px;
+    padding: 0.6rem;
 }
+

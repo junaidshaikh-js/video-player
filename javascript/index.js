@@ -39,8 +39,16 @@ if (supportsVideo) {
     });
 
     // mute 
+    let muteBtn = document.getElementById('mute');
     mute.addEventListener('click', function () {
-        video.muted ? video.muted = false : video.muted = true;
+        if (video.muted) {
+            video.muted = false;
+            muteBtn.innerHTML = '<i class="fas fa-2x fa-volume-up"></i>';
+        }
+        else {
+            video.muted = true;
+            muteBtn.innerHTML = '<i class="fas fa-2x fa-volume-mute"></i>';
+        }
     });
 
     // volume up
@@ -80,6 +88,7 @@ if (supportsVideo) {
     });
 
     // fullscreen
+    let fsbtn = document.getElementById('fullscreen');
     // check if browser supports the fullscreen
     let fullScreenEn = !!(document.fullscreenEnabled);
 
@@ -97,11 +106,13 @@ if (supportsVideo) {
         if (isFullscreen()) {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
+                fsbtn.innerHTML = '<i class="fas fa-2x fa-expand-arrows-alt"></i>';
             }
         }
         else {
             if (videoContainer.requestFullscreen) {
                 videoContainer.requestFullscreen();
+                fsbtn.innerHTML = '<i class="fas fa-2x fa-compress-arrows-alt"></i>'
             }
         }
     })

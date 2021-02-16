@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/482053182b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/index.css">
     <title>Video-Player</title>
 </head>
@@ -18,20 +19,23 @@
             <!-- for browsers which doesn't support video element -->
             <a href="./video/tear-of-steel/tears-of-steel-battle-clip-medium.mp4">Download MP4</a>
         </video>
-        <ul id="video-controls" class="controls">
-            <li><button id="playpause" type="button">Play/Pause</button></li>
-            <li><button id="stop" type="button">Stop</button></li>
-            <li class="progress">
+        <div id="video-controls" class="controls">
+            <button id="playpause" type="button"><i class="far fa-2x fa-play-circle"></i></button>
+            <button id="stop" type="button"><i class="far fa-2x fa-stop-circle"></i></button>
+            <div class="progress">
                 <progress id="progress" value="0" min="0">
                     <!-- span is for browsers that don't support progress element -->
                     <span id="progess-bar"></span>
                 </progress>
-            </li>
-            <li><button id="mute" type="button">Mute/Unmute</button></li>
-            <li><button id="volinc" type="button">Vol+</button></li>
-            <li><button id="voldec" type="button">Vol-</button></li>
-            <li><button id="fullscreen" type="button">Fullscreen</button></li>
-        </ul>
+            </div>
+            <button id="mute" type="button"><i class="fas fa-2x fa-volume-up"></i></button>
+            <button id="volinc" type="button"><i class="far fa-2x fa-plus-square"></i></button>
+            <button id="voldec" type="button"><i class="far fa-2x fa-minus-square"></i></button>
+            <button id="fullscreen" type="button"><i class="fas fa-2x fa-expand-arrows-alt"></i></button>
+        </div>
+        <figcaption>
+            &copy; copyright Blender Foundation | <a href="http://www.sintel.org">www.sintel.org</a>
+        </figcaption>
     </figure>
 
     <script src="./javascript/index.js"></script>
