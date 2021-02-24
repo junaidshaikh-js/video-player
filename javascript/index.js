@@ -25,9 +25,11 @@ if (supportsVideo) {
     playPause.addEventListener('click', function () {
         if (video.paused || video.ended) {
             video.play();
+            playPause.innerHTML = '<i class="far fa-2x fa-pause-circle"></i>';
         }
         else {
             video.pause();
+            playPause.innerHTML = '<i class="far fa-2x fa-play-circle"></i>';
         }
     });
 
@@ -84,6 +86,7 @@ if (supportsVideo) {
     // seek through the video
     progress.addEventListener('click', function (e) {
         var pos = (e.pageX - this.offsetLeft) / this.offsetWidth;
+        console.log(pos);
         video.currentTime = pos * video.duration;
     });
 

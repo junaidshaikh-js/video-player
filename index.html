@@ -11,32 +11,35 @@
 </head>
 
 <body>
-    <figure id="videoContainer">
-        <video id="video" controls preload="metadata" controls>
-            <source src="./video/tear-of-steel/tears-of-steel-battle-clip-medium.mp4" type="video/mp4">
-            <source src="./video/tear-of-steel/tears-of-steel-battle-clip-medium.webm" type="video/webm">
-            <source src="./video/tear-of-steel/tears-of-steel-battle-clip-medium.ogg" type="video/ogg">
-            <!-- for browsers which doesn't support video element -->
-            <a href="./video/tear-of-steel/tears-of-steel-battle-clip-medium.mp4">Download MP4</a>
-        </video>
-        <div id="video-controls" class="controls">
-            <button id="playpause" type="button"><i class="far fa-2x fa-play-circle"></i></button>
-            <button id="stop" type="button"><i class="far fa-2x fa-stop-circle"></i></button>
-            <div class="progress">
-                <progress id="progress" value="0" min="0">
-                    <!-- span is for browsers that don't support progress element -->
-                    <span id="progess-bar"></span>
-                </progress>
+    <h1>Tears of Steel</h1>
+    <div class="wrapper">
+        <figure id="videoContainer">
+            <video id="video" controls preload="metadata" controls>
+                <source src="./video/tear-of-steel/tears-of-steel-battle-clip-medium.mp4" type="video/mp4">
+                <source src="./video/tear-of-steel/tears-of-steel-battle-clip-medium.webm" type="video/webm">
+                <source src="./video/tear-of-steel/tears-of-steel-battle-clip-medium.ogg" type="video/ogg">
+                <!-- for browsers which doesn't support video element -->
+                <a href="./video/tear-of-steel/tears-of-steel-battle-clip-medium.mp4">Download MP4</a>
+            </video>
+            <div id="video-controls" class="controls">
+                <button id="playpause" type="button"><i class="far fa-2x fa-play-circle"></i></button>
+                <button id="stop" type="button"><i class="far fa-2x fa-stop-circle"></i></button>
+                <div class="progress">
+                    <progress id="progress" value="0" min="0">
+                        <!-- span is for browsers that don't support progress element -->
+                        <span id="progess-bar"></span>
+                    </progress>
+                </div>
+                <button id="mute" type="button"><i class="fas fa-2x fa-volume-up"></i></button>
+                <button id="volinc" type="button"><i class="far fa-2x fa-plus-square"></i></button>
+                <button id="voldec" type="button"><i class="far fa-2x fa-minus-square"></i></button>
+                <button id="fullscreen" type="button"><i class="fas fa-2x fa-expand-arrows-alt"></i></button>
             </div>
-            <button id="mute" type="button"><i class="fas fa-2x fa-volume-up"></i></button>
-            <button id="volinc" type="button"><i class="far fa-2x fa-plus-square"></i></button>
-            <button id="voldec" type="button"><i class="far fa-2x fa-minus-square"></i></button>
-            <button id="fullscreen" type="button"><i class="fas fa-2x fa-expand-arrows-alt"></i></button>
-        </div>
-        <figcaption>
-            &copy; copyright Blender Foundation | <a href="http://www.sintel.org">www.sintel.org</a>
-        </figcaption>
-    </figure>
+            <figcaption>
+                &copy; copyright Blender Foundation | <a href="http://www.sintel.org">www.sintel.org</a>
+            </figcaption>
+        </figure>
+    </div>
 
     <script src="./javascript/index.js"></script>
 </body>
