@@ -12,14 +12,15 @@ if (supportsVideo) {
     videoControls.style.display = 'block';
 
     // get control buttons
-    const playPause = document.getElementById('playpause');
-    const stop = document.getElementById('stop');
-    const progress = document.getElementById('progress');
-    const progressBar = document.getElementById('progress-bar');
-    const mute = document.getElementById('mute');
-    const volInc = document.getElementById('volinc');
-    const voldec = document.getElementById('voldec');
-    const fullscreen = document.getElementById('fullscreen');
+    const playPause = document.querySelector('#playpause');
+    const stop = document.querySelector('#stop');
+    const progressDiv = document.querySelector('.progress');
+    const progress = document.querySelector('#progress');
+    const progressBar = document.querySelector('#progress-bar');
+    const mute = document.querySelector('#mute');
+    const volInc = document.querySelector('#volinc');
+    const voldec = document.querySelector('#voldec');
+    const fullscreen = document.querySelector('#fullscreen');
 
     // play/pause 
     playPause.addEventListener('click', function () {
@@ -38,6 +39,7 @@ if (supportsVideo) {
         video.pause();
         video.currentTime = 0;
         progress.value = 0;
+        playPause.innerHTML = '<i class="far fa-2x fa-play-circle"></i>';
     });
 
     // mute 
@@ -92,6 +94,7 @@ if (supportsVideo) {
 
     // fullscreen
     let fsbtn = document.getElementById('fullscreen');
+
     // check if browser supports the fullscreen
     let fullScreenEn = !!(document.fullscreenEnabled);
 
@@ -110,13 +113,25 @@ if (supportsVideo) {
             if (document.exitFullscreen) {
                 document.exitFullscreen();
                 fsbtn.innerHTML = '<i class="fas fa-2x fa-expand-arrows-alt"></i>';
+                videoControls.style.margin = '1rem 0 1rem 0';
+                if (screen.width > 1400) {
+                    progressDiv.style.width = '395px';
+                }
             }
         }
         else {
             if (videoContainer.requestFullscreen) {
                 videoContainer.requestFullscreen();
                 fsbtn.innerHTML = '<i class="fas fa-2x fa-compress-arrows-alt"></i>'
+                video.style.height = '95%';
+                videoControls.style.margin = '-8rem 0 1rem 0';
+                progressDiv.style.width = '83%';
+                if (screen.width < 400) {
+                    progressDiv.style.width = '100%';
+                    videoControls.style.margin = '-12rem 0 1rem 0';
+                }
             }
+
         }
     })
 }
